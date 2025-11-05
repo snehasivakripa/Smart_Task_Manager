@@ -1,0 +1,50 @@
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+}
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+}
+
+.task-list {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.task-card {
+  transition: 0.3s ease;
+  border-left: 6px solid transparent;
+}
+
+.task-card:hover {
+  transform: scale(1.02);
+}
+
+.task-card.TODO { border-color: #f44336; }
+.task-card.IN_PROGRESS { border-color: #ff9800; }
+.task-card.DONE { border-color: #4caf50; }
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: white;
+}
+
+.todo { background: #f44336; }
+.inprogress { background: #ff9800; }
+.done { background: #4caf50; }

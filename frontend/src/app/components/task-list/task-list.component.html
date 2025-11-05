@@ -1,0 +1,45 @@
+<mat-toolbar color="primary">
+  🧠 Smart Task Manager
+</mat-toolbar>
+
+<div class="container">
+  <mat-card class="task-form">
+    <mat-form-field appearance="outline" class="input">
+      <mat-label>Title</mat-label>
+      <input matInput [(ngModel)]="newTask.title" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="input">
+      <mat-label>Description</mat-label>
+      <input matInput [(ngModel)]="newTask.description" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="input">
+      <mat-label>Status</mat-label>
+      <mat-select [(ngModel)]="newTask.status">
+        <mat-option value="TODO">To Do</mat-option>
+        <mat-option value="IN_PROGRESS">In Progress</mat-option>
+        <mat-option value="DONE">Done</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="addTask()">Add Task</button>
+  </mat-card>
+
+  <mat-divider></mat-divider>
+
+  <div class="task-list">
+    <mat-card *ngFor="let task of tasks" class="task-card" [ngClass]="task.status">
+      <div class="task-header">
+        <h3>{{ task.title }}</h3>
+        <mat-icon (click)="deleteTask(task.id!)" color="warn">delete</mat-icon>
+      </div>
+      <p>{{ task.description }}</p>
+      <span class="badge" [class.todo]="task.status==='TODO'"
+                        [class.inprogress]="task.status==='IN_PROGRESS'"
+                        [class.done]="task.status==='DONE'">
+        {{ task.status }}
+      </span>
+    </mat-card>
+  </div>
+</div>
